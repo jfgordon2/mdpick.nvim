@@ -22,7 +22,7 @@ local defaults = {
     hidden = false,
     follow = false,
     extensions = { 'md', 'markdown' },
-    preview_window = 'right,65%,wrap',
+    preview_window = 'right,80%,wrap',
     fd = 'fd',
     fzf = 'fzf',
     mdcat = 'mdcat',
@@ -40,7 +40,7 @@ end
 ---@param options MdPickConfig
 local function validate(options)
     if options.picker ~= 'native' and options.picker ~= 'fzf' then
-        error("mdpick: picker must be 'native' or 'fzf'")
+        error "mdpick: picker must be 'native' or 'fzf'"
     end
 
     validate_fraction('width', options.width)
@@ -53,16 +53,16 @@ local function validate(options)
     end
 
     if type(options.border) ~= 'string' and type(options.border) ~= 'table' then
-        error('mdpick: border must be a string or table accepted by nvim_open_win()')
+        error 'mdpick: border must be a string or table accepted by nvim_open_win()'
     end
 
     if type(options.extensions) ~= 'table' or #options.extensions == 0 then
-        error('mdpick: extensions must be a non-empty list')
+        error 'mdpick: extensions must be a non-empty list'
     end
 
     for _, extension in ipairs(options.extensions) do
         if type(extension) ~= 'string' or extension == '' then
-            error('mdpick: each extension must be a non-empty string')
+            error 'mdpick: each extension must be a non-empty string'
         end
     end
 

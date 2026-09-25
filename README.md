@@ -9,7 +9,7 @@ An optional `fzf` backend ensures a picker with a live `mdcat` preview.
 ## Requirements
 
 - Neovim 0.11 or newer
-- [`mdcat`](https://github.com/swsnr/mdcat)
+- [`mdcat`](https://github.com/BIRSAx2/mdcat)
 - Optional `fzf` backend: [`fd`](https://github.com/sharkdp/fd) and
   [`fzf`](https://github.com/junegunn/fzf)
 
@@ -87,7 +87,7 @@ require('mdpick').setup {
     hidden = false,
     follow = false,
     extensions = { 'md', 'markdown' },
-    preview_window = 'right,65%,wrap',
+    preview_window = 'right,80%,wrap',
     fd = 'fd',
     fzf = 'fzf',
     mdcat = 'mdcat',
@@ -140,7 +140,7 @@ Specifies filename extensions without leading dots. Matching is case-insensitive
 
 #### `preview_window`
 
-Type: non-empty string accepted by `fzf --preview-window`. Default: `'right,65%,wrap'`.
+Type: non-empty string accepted by `fzf --preview-window`. Default: `'right,80%,wrap'`.
 
 Controls live-preview position, size, and wrapping for the `fzf` backend. The native backend ignores this option.
 
@@ -166,7 +166,7 @@ The native backend uses `vim.fs.dir` and does not interpret `.gitignore`, `.igno
 
 ### fzf backend
 
-Set `picker = 'fzf'` to use the original floating picker:
+Set `picker = 'fzf'` to use the configured floating picker with preview:
 
 ```lua
 require('mdpick').setup {
